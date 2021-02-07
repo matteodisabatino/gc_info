@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.AT }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: |
+          git config user.email "matteo.di.sabatino.1989@gmail.com"
+          git config user.name "Matteo Di Sabatino"
+          npm i
+          npm test
+          npm run release
+
+  build-linux:
+    needs: release
+
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.AT }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: |
+          git pull
+          npm i
+          npm run prebuild -- -u $GITHUB_TOKEN
+
+  build-macos:
+    needs: release
+
+    runs-on: macos-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.AT }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: |
+          git pull
+          npm i
+          npm run prebuild -- -u $GITHUB_TOKEN
+
+  build-windows:
+    needs: release
+
+    runs-on: windows-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.AT }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: |
+          git pull
+          npm i
+          npm run prebuild -- -u %GITHUB_TOKEN%
+
+  publish:
+    needs: [build-linux, build-macosx, build-windows]
+
+    runs-on: ubuntu-latest
+
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: |
+          git pull
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm publish

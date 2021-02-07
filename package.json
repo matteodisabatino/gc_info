@@ -1,0 +1,67 @@
+{
+  "name": "@matteodisabatino/gc_info",
+  "version": "5.0.25",
+  "main": "index.js",
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
+    "lint": "eslint index.js test --fix",
+    "prebuild": "prebuild --target 64 --target 72 --target 83 --target 88 --force --strip --tag-prefix \"\"",
+    "rebuild": "node-gyp rebuild",
+    "release": "release-it --ci",
+    "test": "npx nyc --reporter=text ava --node-arguments='--expose_gc' test/**/*.spec.js --check-coverage --lines 70"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matteodisabatino/gc_info"
+  },
+  "keywords": [
+    "garbage collection",
+    "garbage collection info",
+    "garbage collection information",
+    "garbage collection statistics",
+    "garbage collection stats",
+    "garbage collector",
+    "garbage collector info",
+    "garbage collector information",
+    "garbage collector statistics",
+    "garbage collector stats",
+    "gc",
+    "gc info",
+    "gc information",
+    "gc statistics",
+    "gc stats",
+    "heap",
+    "heap info",
+    "heap information",
+    "heap statistics",
+    "heap stats"
+  ],
+  "author": "Matteo Di Sabatino (@matteodisabatino)",
+  "license": "ISC",
+  "description": "Exposes node v8 garbage collection stats",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "nan": "^2.14.2",
+    "prebuild-install": "^6.0.0"
+  },
+  "gypfile": true,
+  "binary": {
+    "module_name": "gc_info"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^2.0.0",
+    "ava": "^3.15.0",
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-ava": "^11.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "prebuild": "^10.0.1",
+    "release-it": "^14.3.0",
+    "semver": "^7.3.4"
+  },
+  "engines": {
+    "node": "10.x || >=12"
+  }
+}
