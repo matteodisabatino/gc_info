@@ -82,7 +82,7 @@ jobs:
           npm run prebuild -- -u %GITHUB_TOKEN%
 
   publish:
-    needs: [build-linux, build-macosx, build-windows]
+    needs: [build-linux, build-macos, build-windows]
 
     runs-on: ubuntu-latest
 
