@@ -1,3 +1,10 @@
+## 0.0.5 (2021-02-13)
+
+
+### Bug Fixes
+
+* wrong data ([836dce9](https://github.com/matteodisabatino/gc_info/commit/836dce9da4e3d55bb62f66545c8231f71ea6e045))
+
 ## 0.0.4 (2021-02-13)
 
 ## 0.0.3 (2021-02-13)
