@@ -1,6 +1,6 @@
 {
   "name": "@matteodisabatino/gc_info",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
