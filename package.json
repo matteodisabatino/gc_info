@@ -34,7 +34,17 @@
     "heap info",
     "heap information",
     "heap statistics",
-    "heap stats"
+    "heap stats",
+    "v8",
+    "v8 info",
+    "v8 information",
+    "v8 statistics",
+    "v8 stats",
+    "v8 heap",
+    "v8 heap info",
+    "v8 heap information",
+    "v8 heap statistics",
+    "v8 heap stats"
   ],
   "author": "Matteo Di Sabatino (@matteodisabatino)",
   "license": "ISC",
