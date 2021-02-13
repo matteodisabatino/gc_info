@@ -2,7 +2,8 @@
   "git": {
     "commit": true,
     "push": true,
-    "tag": true
+    "tag": true,
+    "tagName": "v${version}"
   },
   "github": {
     "release": true
@@ -13,8 +14,7 @@
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "tagName": "v${version}"
+      "infile": "CHANGELOG.md"
     }
   }
 }
