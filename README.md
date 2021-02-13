@@ -45,8 +45,9 @@ const listener2 = info => {
 gcInfo.on('data', listener1)
 gcInfo.on('data', listener2)
 
-gcInfo.off('data', listener1) // listener1 is no longer active but you will
-                              // still receive data via listener2.
+gcInfo.off('data', listener1) // listener1 is no longer active but
+                              // you will still receive data via
+                              // listener2.
 ```
 
 ### Unsubscribe all listeners
@@ -65,9 +66,9 @@ const listener2 = info => {
 gcInfo.on('data', listener1)
 gcInfo.on('data', listener2)
 
-gcInfo.off('data') // Both listener1 and listener2 are no longer active. You
-                   // will not receive any data until you will subscribe the
-                   // `data` event again.
+gcInfo.off('data') // Both listener1 and listener2 are no longer
+                   // active. You will not receive any data until you
+                   // will subscribe the `data` event again.
 ```
 
 ## Information
