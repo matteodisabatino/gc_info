@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "main": "index.js",
   "scripts": {
-    "install": "prebuild-install || node-gyp rebuild",
+    "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "lint": "eslint index.js test --fix",
     "prebuild": "prebuild --target 64 --target 72 --target 83 --target 88 --force --strip --tag-prefix \"\"",
     "rebuild": "node-gyp rebuild",
