@@ -1,7 +1,7 @@
 {
   "name": "@matteodisabatino/gc_info",
   "version": "0.0.2",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "lint": "eslint index.js test --fix",

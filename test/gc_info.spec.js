@@ -1,4 +1,4 @@
-const gcInfo = require('..')
+const gcInfo = require('../lib/index.js')
 const semver = require('semver')
 const test = require('ava')
 
