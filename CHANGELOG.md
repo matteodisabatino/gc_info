@@ -1,3 +1,10 @@
+## 0.0.6 (2021-02-13)
+
+
+### Bug Fixes
+
+* make versions to start with "v" ([8025669](https://github.com/matteodisabatino/gc_info/commit/8025669ba361634f9e5c337691ed77f2b161468c))
+
 ## 0.0.5 (2021-02-13)
 
 
