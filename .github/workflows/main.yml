@@ -35,31 +35,28 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: git config
-      run: |
-        git config user.email "matteo.di.sabatino.1989@gmail.com"
-        git config user.name "Matteo Di Sabatino"
-    - name: git pull
-      run: git pull origin master
-    - name: npm i
-      run: npm i
-    - name: npm run prebuild
-      run: npm run prebuild
-      env:
-        prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: git config
+        run: |
+          git config user.email "matteo.di.sabatino.1989@gmail.com"
+          git config user.name "Matteo Di Sabatino"
+      - name: git pull
+        run: git pull origin master
+      - name: npm i
+        run: npm i
+      - name: npm run prebuild
+        run: npm run prebuild
+        env:
+          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
-  publish:
+  publish-npm:
     needs: build
 
     runs-on: ubuntu-latest
-
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
@@ -67,9 +64,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14"
+          registry-url: https://registry.npmjs.org/
+      - name: git pull
       - run: |
           git config user.email "matteo.di.sabatino.1989@gmail.com"
           git config user.name "Matteo Di Sabatino"
           git pull origin master
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          npm publish --access=public
+      - name: npm publish
+      - run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
