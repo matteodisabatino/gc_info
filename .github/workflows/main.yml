@@ -68,6 +68,8 @@ jobs:
         with:
           node-version: "14"
       - run: |
-          git pull
+          git config user.email "matteo.di.sabatino.1989@gmail.com"
+          git config user.name "Matteo Di Sabatino"
+          git pull origin master
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm publish --access=public
