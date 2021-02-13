@@ -40,6 +40,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: git config
+    - run: |
+        git config user.email "matteo.di.sabatino.1989@gmail.com"
+        git config user.name "Matteo Di Sabatino"
     - name: git pull
       run: git pull
     - name: npm i
