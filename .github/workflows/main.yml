@@ -41,7 +41,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: git config
-    - run: |
+      run: |
         git config user.email "matteo.di.sabatino.1989@gmail.com"
         git config user.name "Matteo Di Sabatino"
     - name: git pull
