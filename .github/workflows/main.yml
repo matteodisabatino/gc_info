@@ -24,65 +24,33 @@ jobs:
           npm test
           npm run release
 
-  build-linux:
+  build:
     needs: release
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
-    env:
-      GITHUB_TOKEN: ${{ secrets.AT }}
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14"
-      - run: |
-          git pull
-          npm i
-          npm run prebuild -- -u $GITHUB_TOKEN
-
-  build-macos:
-    needs: release
-
-    runs-on: macos-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.AT }}
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14"
-      - run: |
-          git pull
-          npm i
-          npm run prebuild -- -u $GITHUB_TOKEN
-
-  build-windows:
-    needs: release
-
-    runs-on: windows-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.AT }}
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14"
-      - run: |
-          git pull
-          npm i
-          npm run prebuild -- -u %GITHUB_TOKEN%
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: git pull
+      run: git pull
+    - name: npm i
+      run: npm i
+    - name: npm run prebuild
+      run: npm run prebuild
+      env:
+        prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
-    needs: [build-linux, build-macos, build-windows]
+    needs: build
 
     runs-on: ubuntu-latest
 
