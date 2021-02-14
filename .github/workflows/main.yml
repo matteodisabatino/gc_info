@@ -45,7 +45,7 @@ jobs:
       - run: npm i
       - run: npm run prebuild
         env:
-          PREBUILD_UPLOAD: ${{ secrets.GITHUB_TOKEN }}
+          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     needs: build
