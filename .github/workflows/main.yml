@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  build:
+  build-glibc:
     needs: release
     runs-on: ${{ matrix.os }}
     strategy:
@@ -47,8 +47,28 @@ jobs:
         env:
           prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
+  build-musl:
+    needs: release
+    runs-on: ubuntu-latest
+    container:
+      image: node:14-alpine
+    steps:
+      - uses: actions/checkout@v1
+      - name: install sdk and python
+        run: apk add --no-cache alpine-sdk python
+      - name: git config
+        run: |
+          git config user.email "matteo.di.sabatino.1989@gmail.com"
+          git config user.name "Matteo Di Sabatino"
+      - name: git pull
+        run: git pull origin master
+      - run: npm i
+      - run: npm run prebuild
+        env:
+          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+
   publish:
-    needs: build
+    needs: [build-glibc, build-musl]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
