@@ -7,33 +7,29 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.AT }}
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: |
+      - name: git config
+        run: |
           git config user.email "matteo.di.sabatino.1989@gmail.com"
           git config user.name "Matteo Di Sabatino"
-          npm i
-          npm test
-          npm run release
+      - run: npm i
+      - run: npm test
+      - run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     needs: release
-
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
         node-version: [14.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -46,18 +42,14 @@ jobs:
           git config user.name "Matteo Di Sabatino"
       - name: git pull
         run: git pull origin master
-      - name: npm i
-        run: npm i
-      - name: npm run prebuild
-        run: npm run prebuild
+      - run: npm i
+      - run: npm run prebuild
         env:
-          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+          PREBUILD_UPLOAD: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     needs: build
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14
@@ -71,7 +63,6 @@ jobs:
           git config user.name "Matteo Di Sabatino"
       - name: git pull
         run: git pull origin master
-      - name: npm publish
-        run: npm publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
