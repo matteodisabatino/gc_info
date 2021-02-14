@@ -1,3 +1,10 @@
+# 0.1.0 (2021-02-14)
+
+
+### Features
+
+* add binaries for musl ([5b82a9c](https://github.com/matteodisabatino/gc_info/commit/5b82a9c162c9f8c1d885590d904d3e61f3c6282e))
+
 ## 0.0.13 (2021-02-14)
 
 ## 0.0.12 (2021-02-14)
