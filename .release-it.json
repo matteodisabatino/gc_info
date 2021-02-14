@@ -2,7 +2,8 @@
   "git": {
     "commit": true,
     "push": true,
-    "tag": true
+    "tag": true,
+    "tagName": "v${version}"
   },
   "github": {
     "release": true

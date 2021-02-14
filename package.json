@@ -3,9 +3,9 @@
   "version": "0.0.11",
   "main": "lib/index.js",
   "scripts": {
-    "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
+    "install": "prebuild-install --tag-prefix \"v\" || node-gyp rebuild",
     "lint": "eslint index.js test --fix",
-    "prebuild": "prebuild --target 64 --target 72 --target 83 --target 88 --force --strip --tag-prefix \"\"",
+    "prebuild": "prebuild --target 64 --target 72 --target 83 --target 88 --force --strip --tag-prefix \"v\"",
     "rebuild": "node-gyp rebuild",
     "release": "release-it --ci",
     "test": "npx nyc --reporter=text ava --node-arguments='--expose_gc' test/**/*.spec.js --check-coverage --lines 70"

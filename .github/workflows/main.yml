@@ -21,7 +21,7 @@ jobs:
       - run: npm test
       - run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.AT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     needs: release
@@ -45,7 +45,7 @@ jobs:
       - run: npm i
       - run: npm run prebuild
         env:
-          PREBUILD_UPLOAD: ${{ secrets.AT }}
+          PREBUILD_UPLOAD: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     needs: build
