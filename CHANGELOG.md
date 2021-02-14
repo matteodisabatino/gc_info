@@ -1,3 +1,10 @@
+## 0.0.10 (2021-02-14)
+
+
+### Bug Fixes
+
+* let version be pure numbers ([092258e](https://github.com/matteodisabatino/gc_info/commit/092258e07b90bca95a7214c88f43090c8e6e7824))
+
 ## 0.0.9 (2021-02-14)
 
 ## 0.0.8 (2021-02-14)
