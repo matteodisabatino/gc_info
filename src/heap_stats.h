@@ -3,7 +3,7 @@
 
 #include <nan.h>
 
-namespace apio
+namespace disa
 {
   class HeapStats
   {
@@ -93,6 +93,6 @@ namespace apio
     double used_global_handles_size_;
 #endif
   };
-} // namespace apio
+} // namespace disa
 
 #endif //GC_INFO_HEAP_STATS_H_

@@ -2,9 +2,9 @@
 
 #include <nan.h>
 
-apio::HeapStats apio::operator-(apio::HeapStats &lhs, apio::HeapStats &rhs)
+disa::HeapStats disa::operator-(disa::HeapStats &lhs, disa::HeapStats &rhs)
 {
-  apio::HeapStats result;
+  disa::HeapStats result;
   result.set_total_heap_size(lhs.total_heap_size() - rhs.total_heap_size());
   result.set_total_heap_size_executable(
       lhs.total_heap_size_executable() - rhs.total_heap_size_executable());
@@ -36,9 +36,9 @@ apio::HeapStats apio::operator-(apio::HeapStats &lhs, apio::HeapStats &rhs)
   return result;
 }
 
-apio::HeapStats::HeapStats() {}
+disa::HeapStats::HeapStats() {}
 
-apio::HeapStats::HeapStats(v8::HeapStatistics &stats)
+disa::HeapStats::HeapStats(v8::HeapStatistics &stats)
 {
   this->total_heap_size_ = static_cast<double>(stats.total_heap_size());
   this->total_heap_size_executable_ = static_cast<double>(
@@ -69,9 +69,9 @@ apio::HeapStats::HeapStats(v8::HeapStatistics &stats)
 #endif
 }
 
-apio::HeapStats::~HeapStats() {}
+disa::HeapStats::~HeapStats() {}
 
-v8::Local<v8::Object> apio::HeapStats::ToV8Object()
+v8::Local<v8::Object> disa::HeapStats::ToV8Object()
 {
   v8::Local<v8::Object> obj = Nan::New<v8::Object>();
   Nan::Set(obj, Nan::New("totalHeapSize").ToLocalChecked(),
@@ -110,159 +110,159 @@ v8::Local<v8::Object> apio::HeapStats::ToV8Object()
   return obj;
 }
 
-double apio::HeapStats::total_heap_size()
+double disa::HeapStats::total_heap_size()
 {
   return this->total_heap_size_;
 }
 
-void apio::HeapStats::set_total_heap_size(double total_heap_size)
+void disa::HeapStats::set_total_heap_size(double total_heap_size)
 {
   this->total_heap_size_ = total_heap_size;
 }
 
-void apio::HeapStats::set_total_heap_size(size_t total_heap_size)
+void disa::HeapStats::set_total_heap_size(size_t total_heap_size)
 {
   this->total_heap_size_ = static_cast<double>(total_heap_size);
 }
 
-double apio::HeapStats::total_heap_size_executable()
+double disa::HeapStats::total_heap_size_executable()
 {
   return this->total_heap_size_executable_;
 }
 
-void apio::HeapStats::set_total_heap_size_executable(
+void disa::HeapStats::set_total_heap_size_executable(
     double total_heap_size_executable)
 {
   this->total_heap_size_executable_ = total_heap_size_executable;
 }
 
-void apio::HeapStats::set_total_heap_size_executable(
+void disa::HeapStats::set_total_heap_size_executable(
     size_t total_heap_size_executable)
 {
   this->total_heap_size_executable_ = static_cast<double>(
       total_heap_size_executable);
 }
 
-double apio::HeapStats::used_heap_size()
+double disa::HeapStats::used_heap_size()
 {
   return this->used_heap_size_;
 }
 
-void apio::HeapStats::set_used_heap_size(double used_heap_size)
+void disa::HeapStats::set_used_heap_size(double used_heap_size)
 {
   this->used_heap_size_ = used_heap_size;
 }
 
-void apio::HeapStats::set_used_heap_size(size_t used_heap_size)
+void disa::HeapStats::set_used_heap_size(size_t used_heap_size)
 {
   this->used_heap_size_ = static_cast<double>(used_heap_size);
 }
 
-double apio::HeapStats::heap_size_limit()
+double disa::HeapStats::heap_size_limit()
 {
   return this->heap_size_limit_;
 }
 
-void apio::HeapStats::set_heap_size_limit(double heap_size_limit)
+void disa::HeapStats::set_heap_size_limit(double heap_size_limit)
 {
   this->heap_size_limit_ = heap_size_limit;
 }
 
-void apio::HeapStats::set_heap_size_limit(size_t heap_size_limit)
+void disa::HeapStats::set_heap_size_limit(size_t heap_size_limit)
 {
   this->heap_size_limit_ = static_cast<double>(heap_size_limit);
 }
 
-double apio::HeapStats::total_physical_size()
+double disa::HeapStats::total_physical_size()
 {
   return this->total_physical_size_;
 }
 
-void apio::HeapStats::set_total_physical_size(double total_physical_size)
+void disa::HeapStats::set_total_physical_size(double total_physical_size)
 {
   this->total_physical_size_ = total_physical_size;
 }
 
-void apio::HeapStats::set_total_physical_size(size_t total_physical_size)
+void disa::HeapStats::set_total_physical_size(size_t total_physical_size)
 {
   this->total_physical_size_ = static_cast<double>(total_physical_size);
 }
 
-double apio::HeapStats::total_available_size()
+double disa::HeapStats::total_available_size()
 {
   return this->total_available_size_;
 }
 
-void apio::HeapStats::set_total_available_size(double total_available_size)
+void disa::HeapStats::set_total_available_size(double total_available_size)
 {
   this->total_available_size_ = total_available_size;
 }
 
-void apio::HeapStats::set_total_available_size(size_t total_available_size)
+void disa::HeapStats::set_total_available_size(size_t total_available_size)
 {
   this->total_available_size_ = static_cast<double>(total_available_size);
 }
 
-double apio::HeapStats::malloced_memory()
+double disa::HeapStats::malloced_memory()
 {
   return this->malloced_memory_;
 }
 
-void apio::HeapStats::set_malloced_memory(double malloced_memory)
+void disa::HeapStats::set_malloced_memory(double malloced_memory)
 {
   this->malloced_memory_ = malloced_memory;
 }
 
-void apio::HeapStats::set_malloced_memory(size_t malloced_memory)
+void disa::HeapStats::set_malloced_memory(size_t malloced_memory)
 {
   this->malloced_memory_ = static_cast<double>(malloced_memory);
 }
 
-double apio::HeapStats::peak_malloced_memory()
+double disa::HeapStats::peak_malloced_memory()
 {
   return this->peak_malloced_memory_;
 }
 
-void apio::HeapStats::set_peak_malloced_memory(double peak_malloced_memory)
+void disa::HeapStats::set_peak_malloced_memory(double peak_malloced_memory)
 {
   this->peak_malloced_memory_ = peak_malloced_memory;
 }
 
-void apio::HeapStats::set_peak_malloced_memory(size_t peak_malloced_memory)
+void disa::HeapStats::set_peak_malloced_memory(size_t peak_malloced_memory)
 {
   this->peak_malloced_memory_ = static_cast<double>(peak_malloced_memory);
 }
 
-double apio::HeapStats::number_of_native_contexts()
+double disa::HeapStats::number_of_native_contexts()
 {
   return this->number_of_native_contexts_;
 }
 
-void apio::HeapStats::set_number_of_native_contexts(
+void disa::HeapStats::set_number_of_native_contexts(
     double number_of_native_contexts)
 {
   this->number_of_native_contexts_ = number_of_native_contexts;
 }
 
-void apio::HeapStats::set_number_of_native_contexts(
+void disa::HeapStats::set_number_of_native_contexts(
     size_t number_of_native_contexts)
 {
   this->number_of_native_contexts_ = static_cast<double>(
       number_of_native_contexts);
 }
 
-double apio::HeapStats::number_of_detached_contexts()
+double disa::HeapStats::number_of_detached_contexts()
 {
   return this->number_of_detached_contexts_;
 }
 
-void apio::HeapStats::set_number_of_detached_contexts(
+void disa::HeapStats::set_number_of_detached_contexts(
     double number_of_detached_contexts)
 {
   this->number_of_detached_contexts_ = number_of_detached_contexts;
 }
 
-void apio::HeapStats::set_number_of_detached_contexts(
+void disa::HeapStats::set_number_of_detached_contexts(
     size_t number_of_detached_contexts)
 {
   this->number_of_detached_contexts_ = static_cast<double>(
@@ -270,53 +270,53 @@ void apio::HeapStats::set_number_of_detached_contexts(
 }
 
 #if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
-double apio::HeapStats::external_memory()
+double disa::HeapStats::external_memory()
 {
   return this->external_memory_;
 }
 
-void apio::HeapStats::set_external_memory(double external_memory)
+void disa::HeapStats::set_external_memory(double external_memory)
 {
   this->external_memory_ = external_memory;
 }
 
-void apio::HeapStats::set_external_memory(size_t external_memory)
+void disa::HeapStats::set_external_memory(size_t external_memory)
 {
   this->external_memory_ = static_cast<double>(external_memory);
 }
 #endif
 
 #if NODE_MODULE_VERSION >= NODE_14_0_MODULE_VERSION
-double apio::HeapStats::total_global_handles_size()
+double disa::HeapStats::total_global_handles_size()
 {
   return this->total_global_handles_size_;
 }
 
-void apio::HeapStats::set_total_global_handles_size(
+void disa::HeapStats::set_total_global_handles_size(
     double total_global_handles_size)
 {
   this->total_global_handles_size_ = total_global_handles_size;
 }
 
-void apio::HeapStats::set_total_global_handles_size(
+void disa::HeapStats::set_total_global_handles_size(
     size_t total_global_handles_size)
 {
   this->total_global_handles_size_ = static_cast<double>(
       total_global_handles_size);
 }
 
-double apio::HeapStats::used_global_handles_size()
+double disa::HeapStats::used_global_handles_size()
 {
   return this->used_global_handles_size_;
 }
 
-void apio::HeapStats::set_used_global_handles_size(
+void disa::HeapStats::set_used_global_handles_size(
     double used_global_handles_size)
 {
   this->used_global_handles_size_ = used_global_handles_size;
 }
 
-void apio::HeapStats::set_used_global_handles_size(
+void disa::HeapStats::set_used_global_handles_size(
     size_t used_global_handles_size)
 {
   this->used_global_handles_size_ = static_cast<double>(

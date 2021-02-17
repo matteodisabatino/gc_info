@@ -2,13 +2,13 @@
 
 #include <nan.h>
 
-apio::Event::Event(v8::Local<v8::Function> callback)
+disa::Event::Event(v8::Local<v8::Function> callback)
     : Nan::AsyncResource("Event")
 {
   this->callback.Reset(callback);
 }
 
-apio::Event::~Event()
+disa::Event::~Event()
 {
   this->callback.Reset();
 }

@@ -3,7 +3,7 @@
 
 #include <nan.h>
 
-namespace apio
+namespace disa
 {
   class Event : public Nan::AsyncResource
   {
@@ -13,6 +13,6 @@ namespace apio
 
     Nan::Persistent<v8::Function> callback;
   };
-} // namespace apio
+} // namespace disa
 
 #endif // GC_INFO_EVENT_H_

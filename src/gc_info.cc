@@ -8,8 +8,8 @@
 #include "heap_stats.h"
 #include "gc_stats.h"
 
-static apio::GCStats gc_stats;
-static std::vector<apio::Event *> on_data_callbacks;
+static disa::GCStats gc_stats;
+static std::vector<disa::Event *> on_data_callbacks;
 
 static void StopHandle(uv_handle_t *handle_info)
 {
@@ -20,16 +20,16 @@ static void StartHandle(uv_async_t *handle_info)
 {
   Nan::HandleScope scope;
 
-  apio::GCStats *data = static_cast<apio::GCStats *>(handle_info->data);
-  apio::HeapStats pre_stats = data->pre_stats();
-  apio::HeapStats post_stats = data->post_stats();
-  apio::HeapStats diff_stats = post_stats - pre_stats;
+  disa::GCStats *data = static_cast<disa::GCStats *>(handle_info->data);
+  disa::HeapStats pre_stats = data->pre_stats();
+  disa::HeapStats post_stats = data->post_stats();
+  disa::HeapStats diff_stats = post_stats - pre_stats;
   data->set_diff_stats(diff_stats);
 
   v8::Local<v8::Object> obj = data->ToV8Object();
   v8::Local<v8::Value> arguments[] = {obj};
 
-  for (apio::Event *event : on_data_callbacks)
+  for (disa::Event *event : on_data_callbacks)
   {
     Nan::Persistent<v8::Function> &persistent_callback = event->callback;
     v8::Local<v8::Function> callback = Nan::New(persistent_callback);
@@ -91,7 +91,7 @@ static NAN_METHOD(On)
   }
 
   v8::Local<v8::Function> cb = Nan::To<v8::Function>(info[1]).ToLocalChecked();
-  apio::Event *event = new apio::Event(cb);
+  disa::Event *event = new disa::Event(cb);
   on_data_callbacks.push_back(event);
 
   Nan::AddGCEpilogueCallback(OnGCEpilogue);
@@ -122,10 +122,10 @@ static NAN_METHOD(Off)
   if (info[1]->IsFunction())
   {
     v8::Local<v8::Function> cb = Nan::To<v8::Function>(info[1]).ToLocalChecked();
-    apio::Event *event = new apio::Event(cb);
-    std::vector<apio::Event *>::iterator it = std::find_if(
+    disa::Event *event = new disa::Event(cb);
+    std::vector<disa::Event *>::iterator it = std::find_if(
         on_data_callbacks.begin(), on_data_callbacks.end(),
-        [event](apio::Event *e) { return e->callback == event->callback; });
+        [event](disa::Event *e) { return e->callback == event->callback; });
 
     if (it != on_data_callbacks.end())
     {
@@ -136,7 +136,7 @@ static NAN_METHOD(Off)
     return;
   }
 
-  for (apio::Event *e : on_data_callbacks)
+  for (disa::Event *e : on_data_callbacks)
   {
     delete e;
   }

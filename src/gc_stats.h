@@ -5,7 +5,7 @@
 
 #include "heap_stats.h"
 
-namespace apio
+namespace disa
 {
   class GCStats
   {
@@ -15,15 +15,15 @@ namespace apio
 
     v8::Local<v8::Object> ToV8Object();
 
-    apio::HeapStats pre_stats();
+    disa::HeapStats pre_stats();
     void set_pre_stats(v8::HeapStatistics &pre_stats);
 
-    apio::HeapStats post_stats();
+    disa::HeapStats post_stats();
     void set_post_stats(v8::HeapStatistics &pre_stats);
 
-    apio::HeapStats diff_stats();
+    disa::HeapStats diff_stats();
     void set_diff_stats(v8::HeapStatistics &diff_stats);
-    void set_diff_stats(apio::HeapStats &diff_stats);
+    void set_diff_stats(disa::HeapStats &diff_stats);
 
     uint64_t started_at();
     void set_started_at(uint64_t time);
@@ -35,13 +35,13 @@ namespace apio
     void set_gctype(int type);
 
   private:
-    apio::HeapStats pre_stats_;
-    apio::HeapStats post_stats_;
-    apio::HeapStats diff_stats_;
+    disa::HeapStats pre_stats_;
+    disa::HeapStats post_stats_;
+    disa::HeapStats diff_stats_;
     uint64_t started_at_;
     uint64_t ended_at_;
     int gctype_;
   };
-} // namespace apio
+} // namespace disa
 
 #endif // GC_INFO_GC_STATS_H_
