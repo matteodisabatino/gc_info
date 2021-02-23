@@ -1,3 +1,10 @@
+# 0.2.0 (2021-02-23)
+
+
+### Features
+
+* export enum GcType ([5376134](https://github.com/matteodisabatino/gc_info/commit/5376134358dd8e600beaa69d666cba43cc412943))
+
 ## 0.1.1 (2021-02-17)
 
 # 0.1.0 (2021-02-14)
