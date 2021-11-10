@@ -5,14 +5,14 @@
 
 namespace disa
 {
-  class Event : public Nan::AsyncResource
-  {
-  public:
-    Event(v8::Local<v8::Function> callback);
-    ~Event();
+    class Event : public Nan::AsyncResource
+    {
+    public:
+        Event(v8::Local<v8::Function> callback);
+        ~Event();
 
-    Nan::Persistent<v8::Function> callback;
-  };
+        Nan::Persistent<v8::Function> callback;
+    };
 } // namespace disa
 
 #endif // GC_INFO_EVENT_H_

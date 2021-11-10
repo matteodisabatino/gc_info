@@ -5,11 +5,11 @@ on:
     types: [created]
 
 jobs:
-  build-glibc:
+  build-linux_macos_windows-glibc:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2
@@ -22,28 +22,28 @@ jobs:
         env:
           prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
-  build-musl:
+  build-linux-musl:
     runs-on: ubuntu-latest
     container:
-      image: node:14-alpine
+      image: node:16-alpine
     steps:
       - uses: actions/checkout@v2
-      - name: install sdk and python
-        run: apk add --no-cache alpine-sdk python
+      - name: Install sdk and python
+        run: apk add --no-cache alpine-sdk python3
       - run: npm i
       - run: npm run prebuild
         env:
           prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
-    needs: [build-glibc, build-musl]
+    needs: [build-linux_macos_windows-glibc, build-linux-musl]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "16"
           registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:

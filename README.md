@@ -1,10 +1,10 @@
 # gc_info
 
-Gives you information about V8 GC after its execution. Based on [node-gcstats](https://github.com/dainis/node-gcstats).
+Gives you information about V8 GC after its execution. Based on [gc-stats](https://www.npmjs.com/package/gc-stats).
 
-This module is designed to support only current, active and in maintenance Node.js versions according to [official Node.js Release schedule](https://github.com/nodejs/Release). Both source code and binaries for Linux, macOS and Windows are provided.
+Since version 1.0.0 the module supports all existing Node.js versions from 0.8 to the current release and binaries for Node.js 5+ are provided together; for prior versions module must be compiled.
 
-It is a C++ addon written using the module [nan](https://github.com/nodejs/nan) and following the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) except for the lint. If you find something not compliant with, please provide a pull request.
+It is a C++ addon written using the module [nan](https://www.npmjs.com/package/nan) and following the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) except for the lint. If you find something not compliant with, please provide a pull request.
 
 In general every pull request that will:
 
@@ -132,7 +132,7 @@ gcInfo.off('data') // Both listener1 and listener2 are no longer
 - startedAt: The moment the GC started (Unix timestamp in milliseconds).
 - endedAt: The moment the GC ended (Unix timestamp in milliseconds).
 - duration: The time the GC has been active (difference between endedAt and startedAt).
-- gctype: Memory allocation type. According to [v8 source code](https://github.com/nodejs/node/blob/a91a95f8203c6683ad497c0cbd4cb5f48030bd23/deps/v8/include/v8.h#L7588-L7595) possible values are:
+- gctype: Memory allocation type. According to [v8 source code](https://github.com/nodejs/node/blob/master/deps/v8/include/v8.h#L7656-L7663) possible values are:
   - 1: Scavenge
   - 2: Mark/Sweep/Compact
   - 4: Incremental marking
@@ -143,12 +143,12 @@ gcInfo.off('data') // Both listener1 and listener2 are no longer
 - totalHeapSizeExecutable: Number of bytes for compiled bytecode and JITed code.
 - usedHeapSize: Number of bytes in use by application data.
 - heapSizeLimit: The absolute limit the heap cannot exceed.
-- totalPhysicalSize: Committed size.
-- totalAvailableSize: Available heap size.
-- mallocedMemory: Current amount of memory, obtained via malloc.
-- peakMallocedMemory: Peak amount of memory, obtained via malloc.
-- numberOfNativeContexts: Number of the top-level contexts currently active. Increase of this number over time indicates a memory leak.
-- numberOfDetachedContexts: Number of contexts that were detached and not yet garbage collected. This number being non-zero indicates a potential memory leak.
-- externalMemory: Number of bytes of memory allocated outside of v8's heap. (Node.js 12+)
+- totalPhysicalSize: Committed size. (Node.js 0.12+)
+- totalAvailableSize: Available heap size. (Node.js 4+)
+- mallocedMemory: Current amount of memory, obtained via malloc. (Node.js 7+)
+- peakMallocedMemory: Peak amount of memory, obtained via malloc. (Node.js 7+)
+- numberOfNativeContexts: Number of the top-level contexts currently active. Increase of this number over time indicates a memory leak. (Node.js 10+)
+- numberOfDetachedContexts: Number of contexts that were detached and not yet garbage collected. This number being non-zero indicates a potential memory leak. (Node.js 10+)
+- externalMemory: Number of bytes of memory allocated outside of v8's heap. (Node.js 11+)
 - totalGlobalHandlesSize: Size of all global handles in the heap. (Node.js 14+)
 - usedGlobalHandlesSize: Size of all allocated/used global handles in the heap. (Node.js 14+)

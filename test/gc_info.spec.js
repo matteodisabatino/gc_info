@@ -16,16 +16,28 @@ const heapKeys = [
   'totalHeapSize',
   'totalHeapSizeExecutable',
   'usedHeapSize',
-  'heapSizeLimit',
-  'totalPhysicalSize',
-  'totalAvailableSize',
-  'mallocedMemory',
-  'peakMallocedMemory',
-  'numberOfNativeContexts',
-  'numberOfDetachedContexts'
+  'heapSizeLimit'
 ]
 
-if (semver.gte(semver.clean(process.version), '12.0.0')) {
+if (semver.gte(semver.clean(process.version), '0.12.0')) {
+  heapKeys.push('totalPhysicalSize')
+}
+
+if (semver.gte(semver.clean(process.version), '4.0.0')) {
+  heapKeys.push('totalAvailableSize')
+}
+
+if (semver.gte(semver.clean(process.version), '7.0.0')) {
+  heapKeys.push('mallocedMemory')
+  heapKeys.push('peakMallocedMemory')
+}
+
+if (semver.gte(semver.clean(process.version), '10.0.0')) {
+  heapKeys.push('numberOfNativeContexts')
+  heapKeys.push('numberOfDetachedContexts')
+}
+
+if (semver.gte(semver.clean(process.version), '11.0.0')) {
   heapKeys.push('externalMemory')
 }
 

@@ -1,6 +1,13 @@
 {
     "targets": [
         {
+            "conditions": [
+                ["OS=='mac'", {
+                    "xcode_settings": {
+                        "MACOSX_DEPLOYMENT_TARGET": "10.9"
+                    }
+                }]
+            ],
             "target_name": "gc_info",
             "sources": [
                 "src/gc_info.cc",

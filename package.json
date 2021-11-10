@@ -5,7 +5,7 @@
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "lint": "eslint index.js test --fix",
-    "prebuild": "prebuild --target 64 --target 72 --target 83 --target 88 --force --strip --tag-prefix \"\"",
+    "prebuild": "prebuild -r node -t 5.0.0 -t 6.0.0 -t 7.0.0 -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 --force --strip --tag-prefix \"\"",
     "rebuild": "node-gyp rebuild",
     "release": "release-it --ci",
     "test": "npx nyc --reporter=text ava --node-arguments='--expose_gc' test/**/*.spec.js --check-coverage --lines 70"
@@ -13,6 +13,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/matteodisabatino/gc_info"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "garbage collection",
@@ -59,19 +62,19 @@
     "module_name": "gc_info"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^2.0.1",
+    "@release-it/conventional-changelog": "^3.3.0",
     "ava": "^3.15.0",
-    "eslint": "^7.20.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-ava": "^11.0.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-ava": "^13.1.0",
+    "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "prebuild": "^10.0.1",
+    "eslint-plugin-promise": "^5.1.1",
+    "prebuild": "^11.0.0",
     "release-it": "^14.4.1",
-    "semver": "^7.3.4"
+    "semver": "^7.3.5"
   },
   "engines": {
-    "node": "10.x || >=12"
+    "node": "<=16"
   }
 }
