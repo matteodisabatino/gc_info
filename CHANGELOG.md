@@ -1,3 +1,15 @@
+# 1.0.0 (2021-11-10)
+
+
+### Code Refactoring
+
+* support for all existing Node.js versions ([34a7770](https://github.com/matteodisabatino/gc_info/commit/34a7770bacd61f52f223faa4b98b76c502424813))
+
+
+### BREAKING CHANGES
+
+* no need to compile for Node.js 5+
+
 # 0.2.0 (2021-02-23)
 
 
