@@ -1,3 +1,10 @@
+# 1.0.0 (2021-11-14)
+
+
+### Features
+
+* add typescript types ([fc36bd6](https://github.com/matteodisabatino/gc_info/commit/fc36bd6b3622ce61781110cb06d8b643f1f557a8))
+
 # 1.0.0 (2021-11-10)
 
 
