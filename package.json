@@ -1,10 +1,11 @@
 {
   "name": "@matteodisabatino/gc_info",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
-    "lint": "eslint index.js test --fix",
+    "lint": "eslint dist test --fix",
     "prebuild": "prebuild -r node -t 5.0.0 -t 6.0.0 -t 7.0.0 -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 --force --strip --tag-prefix \"\"",
     "rebuild": "node-gyp rebuild",
     "release": "release-it --ci",
