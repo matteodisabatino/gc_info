@@ -4,6 +4,8 @@ Gives you information about V8 GC after its execution. Based on [gc-stats](https
 
 Since version 1.0.0 the module supports all existing Node.js versions from 0.8 to the current release and binaries for Node.js 5+ are provided together; for prior versions module must be compiled.
 
+Since version 1.2.0 the module supports all existing Electron versions from 0.3.1 to the current release and binaries for Electron 0.36.0+ are provided together; for prior versions module must be compiled.
+
 It is a C++ addon written using the module [nan](https://www.npmjs.com/package/nan) and following the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) except for the lint. If you find something not compliant with, please provide a pull request.
 
 In general every pull request that will:
