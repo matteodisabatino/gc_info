@@ -1,3 +1,10 @@
+# 1.2.0 (2022-01-02)
+
+
+### Features
+
+* support Node.js v17 and Electron supported versions according to node-abi ([d53e5df](https://github.com/matteodisabatino/gc_info/commit/d53e5df149bcee042f65b0a0b038c6dcbaa02107))
+
 # 1.1.0 (2021-11-14)
 
 
