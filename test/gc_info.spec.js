@@ -37,7 +37,7 @@ if (semver.gte(semver.clean(process.version), '10.0.0')) {
   heapKeys.push('numberOfDetachedContexts')
 }
 
-if (semver.gte(semver.clean(process.version), '11.0.0')) {
+if (semver.gte(semver.clean(process.version), '12.0.0')) {
   heapKeys.push('externalMemory')
 }
 

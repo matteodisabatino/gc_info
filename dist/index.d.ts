@@ -50,7 +50,7 @@ export interface GcStats {
   numberOfDetachedContexts?: number
 
   /**
-   * Number of bytes of memory allocated outside of v8's heap. (Node.js 11+)
+   * Number of bytes of memory allocated outside of v8's heap. (Node.js 12+)
    */
   externalMemory?: number
 

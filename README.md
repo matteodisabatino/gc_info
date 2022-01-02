@@ -149,6 +149,6 @@ gcInfo.off('data') // Both listener1 and listener2 are no longer
 - peakMallocedMemory: Peak amount of memory, obtained via malloc. (Node.js 7+)
 - numberOfNativeContexts: Number of the top-level contexts currently active. Increase of this number over time indicates a memory leak. (Node.js 10+)
 - numberOfDetachedContexts: Number of contexts that were detached and not yet garbage collected. This number being non-zero indicates a potential memory leak. (Node.js 10+)
-- externalMemory: Number of bytes of memory allocated outside of v8's heap. (Node.js 11+)
+- externalMemory: Number of bytes of memory allocated outside of v8's heap. (Node.js 12+)
 - totalGlobalHandlesSize: Size of all global handles in the heap. (Node.js 14+)
 - usedGlobalHandlesSize: Size of all allocated/used global handles in the heap. (Node.js 14+)

@@ -28,7 +28,7 @@ disa::HeapStats disa::operator-(disa::HeapStats &lhs, disa::HeapStats &rhs)
     result.set_number_of_detached_contexts(lhs.number_of_detached_contexts() - rhs.number_of_detached_contexts());
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
     result.set_external_memory(lhs.external_memory() - rhs.external_memory());
 #endif
 
@@ -67,7 +67,7 @@ disa::HeapStats::HeapStats(v8::HeapStatistics &stats)
     this->number_of_detached_contexts_ = static_cast<double>(stats.number_of_detached_contexts());
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
     this->external_memory_ = static_cast<double>(stats.external_memory());
 #endif
 
@@ -105,7 +105,7 @@ v8::Local<v8::Object> disa::HeapStats::ToV8Object()
     Nan::Set(obj, Nan::New("numberOfDetachedContexts").ToLocalChecked(), Nan::New<v8::Number>(this->number_of_detached_contexts_));
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
     Nan::Set(obj, Nan::New("externalMemory").ToLocalChecked(), Nan::New<v8::Number>(this->external_memory_));
 #endif
 
@@ -275,7 +275,7 @@ void disa::HeapStats::set_number_of_detached_contexts(size_t number_of_detached_
 }
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
 double disa::HeapStats::external_memory()
 {
     return this->external_memory_;

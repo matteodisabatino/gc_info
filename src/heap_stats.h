@@ -64,7 +64,7 @@ namespace disa
         void set_number_of_detached_contexts(size_t number_of_detached_contexts);
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
         double external_memory();
         void set_external_memory(double external_memory);
         void set_external_memory(size_t external_memory);
@@ -104,7 +104,7 @@ namespace disa
         double number_of_detached_contexts_;
 #endif
 
-#if NODE_MODULE_VERSION >= NODE_11_0_MODULE_VERSION
+#if NODE_MODULE_VERSION >= NODE_12_0_MODULE_VERSION
         double external_memory_;
 #endif
 
