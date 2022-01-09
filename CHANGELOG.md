@@ -1,5 +1,10 @@
 ## 1.2.1 (2022-01-02)
 
+
+### Documentation
+
+* update README ([2350ddf](https://github.com/matteodisabatino/gc_info/commit/2350ddfe37e5649761b0ff44eb1f04c951a3c817))
+
 # 1.2.0 (2022-01-02)
 
 
