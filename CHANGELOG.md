@@ -1,3 +1,10 @@
+# 1.3.0 (2022-01-09)
+
+
+### Features
+
+* add number indexing too for enum GcType ([ce9ab7b](https://github.com/matteodisabatino/gc_info/commit/ce9ab7b36c1fc4bc039f365bb2b8ee614e5fe84f))
+
 ## 1.2.1 (2022-01-02)
 
 
