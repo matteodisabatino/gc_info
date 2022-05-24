@@ -5,21 +5,7 @@
 
 ### Features
 
-* support Node.js v18 and Electron v17 and v18 ([584001f](https://github.com/matteodisabatino/gc_info/commit/584001f94b046487536dc15c96d26acbbc3aa069))
-
-# 1.4.0 (2022-05-24)
-
-
-### Features
-
-* support Node.js v18 and Electron v17 and v18 ([f031721](https://github.com/matteodisabatino/gc_info/commit/f0317216ed4c48e783786705c20a124b7e69b7c4))
-
-# 1.4.0 (2022-05-24)
-
-
-### Features
-
-* support Node.js v18 and Electron v17 and v18 ([879b35f](https://github.com/matteodisabatino/gc_info/commit/879b35f27e24e8ed4072897d96c3cb13bbee1031))
+* support Node.js v18 and Electron v17 and v18 ([879b35f](https://github.com/matteodisabatino/gc_info/commit/879b35f27e24e8ed4072897d96c3cb13bbee1031), [f031721](https://github.com/matteodisabatino/gc_info/commit/f0317216ed4c48e783786705c20a124b7e69b7c4), [584001f](https://github.com/matteodisabatino/gc_info/commit/584001f94b046487536dc15c96d26acbbc3aa069))
 
 # 1.3.0 (2022-01-09)
 
