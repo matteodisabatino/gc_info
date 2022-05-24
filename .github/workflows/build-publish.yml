@@ -9,8 +9,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [18.x]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [16.x]
+        os: [ubuntu-latest, macos-latest, windows-2019]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -28,7 +28,7 @@ jobs:
   build-linux-musl:
     runs-on: ubuntu-latest
     container:
-      image: node:18-alpine
+      image: node:16-alpine
     steps:
       - uses: actions/checkout@v2
       - name: Install sdk and python
@@ -46,10 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 18
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: "16"
           registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
