@@ -1,3 +1,12 @@
+
+
+# 1.4.0 (2022-05-24)
+
+
+### Features
+
+* support Node.js v18 and Electron v17 and v18 ([879b35f](https://github.com/matteodisabatino/gc_info/commit/879b35f27e24e8ed4072897d96c3cb13bbee1031))
+
 # 1.3.0 (2022-01-09)
 
 
@@ -102,4 +111,3 @@
 ## 0.0.2 (2021-02-07)
 
 ## 0.0.1 (2021-02-07)
-
