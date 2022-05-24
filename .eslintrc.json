@@ -9,8 +9,7 @@
     "standard"
   ],
   "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": "latest"
   },
   "rules": {
     "no-var": "off"

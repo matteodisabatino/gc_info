@@ -6,11 +6,11 @@
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "lint": "eslint dist test --fix",
-    "prebuild_electron": "prebuild -r electron -t 0.36.0 -t 1.1.0 -t 1.3.0 -t 1.4.0 -t 1.5.0 -t 1.6.0 -t 1.7.0 -t 1.8.0 -t 3.0.0-beta.1 -t 5.0.0-nightly.20190107 -t 5.0.0-beta.1 -t 4.0.4 -t 5.0.0-beta.9 -t 6.0.0-beta.1 -t 7.0.0-beta.1 -t 8.0.0-beta.1 -t 9.0.0-beta.2 -t 10.0.0-beta.1 -t 11.0.0-beta.11 -t 12.0.0-beta.1 -t 13.0.0-beta.2 -t 14.0.2 -t 15.0.0-beta.7 -t 16.0.0-alpha.1 --force --strip --tag-prefix \"\"",
-    "prebuild_node": "prebuild -r node -t 5.0.0 -t 6.0.0 -t 7.0.0 -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.1 --force --strip --tag-prefix \"\"",
+    "prebuild_electron": "prebuild -r electron -t 0.36.0 -t 1.1.0 -t 1.3.0 -t 1.4.0 -t 1.5.0 -t 1.6.0 -t 1.7.0 -t 1.8.0 -t 2.0.0 -t 3.0.0 -t 4.0.0 -t 4.0.4 -t 5.0.0-beta.9 -t 6.0.0-beta.1 -t 7.0.0-beta.1 -t 8.0.0-beta.1 -t 9.0.0-beta.1 -t 9.0.0-beta.2 -t 10.0.0-beta.1 -t 11.0.0-beta.1 -t 11.0.0-beta.11 -t 12.0.0-beta.1 -t 13.0.0-beta.2 -t 14.0.0-beta.1 -t 15.0.0-alpha.1 -t 14.0.2 -t 15.0.0-beta.7 -t 16.0.0-alpha.1 -t 17.0.0-alpha.1 -t 18.0.0-alpha.1 --force --strip --tag-prefix \"\"",
+    "prebuild_node": "prebuild -r node -t 5.0.0 -t 6.0.0 -t 7.0.0 -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.1 -t 18.0.0 --force --strip --tag-prefix \"\"",
     "rebuild": "node-gyp rebuild",
     "release": "release-it --ci",
-    "test": "npx nyc --reporter=text ava --node-arguments='--expose_gc' test/**/*.spec.js --check-coverage --lines 70"
+    "test": "npx nyc --reporter=text ava --no-worker-threads --node-arguments='--expose_gc' test/**/*.spec.js --check-coverage --lines 70"
   },
   "repository": {
     "type": "git",
@@ -57,26 +57,26 @@
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.2",
-    "prebuild-install": "^7.0.0"
+    "prebuild-install": "^7.1.0"
   },
   "gypfile": true,
   "binary": {
     "module_name": "gc_info"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^3.3.0",
-    "ava": "^3.15.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-ava": "^13.1.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1",
-    "prebuild": "^11.0.0",
-    "release-it": "^14.4.1",
-    "semver": "^7.3.5"
+    "@release-it/conventional-changelog": "^5.0.0",
+    "ava": "^4.2.0",
+    "eslint": "^8.16.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-ava": "^13.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prebuild": "^11.0.3",
+    "release-it": "^15.0.0",
+    "semver": "^7.3.7"
   },
   "engines": {
-    "node": "<=17"
+    "node": "<=18"
   }
 }

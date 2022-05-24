@@ -115,4 +115,4 @@ namespace disa
     };
 } // namespace disa
 
-#endif //GC_INFO_HEAP_STATS_H_
+#endif // GC_INFO_HEAP_STATS_H_
