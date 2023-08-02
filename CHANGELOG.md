@@ -1,5 +1,12 @@
 
 
+## 2.0.1 (2023-08-02)
+
+
+### Bug Fixes
+
+* update readme ([b427900](https://github.com/matteodisabatino/gc_info/commit/b427900317b9fa82b039fd2d15ed365d069499a0))
+
 # 2.0.0 (2023-08-02)
 
 
