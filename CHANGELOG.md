@@ -1,5 +1,17 @@
 
 
+# 2.0.0 (2023-08-02)
+
+
+### Code Refactoring
+
+* add support to Node.js v19 and v20 and Electron v23+ ([56f73b7](https://github.com/matteodisabatino/gc_info/commit/56f73b7533083876a779bea3e1f4c877fada544c))
+
+
+### BREAKING CHANGES
+
+* drop support to Node.js <= v16 and Electron <= v22
+
 ## 1.4.1 (2022-05-24)
 
 # 1.4.0 (2022-05-24)
