@@ -1,6 +1,6 @@
 {
   "name": "@matteodisabatino/gc_info",
-  "version": "1.4.2",
+  "version": "1.4.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
