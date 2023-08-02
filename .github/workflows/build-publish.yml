@@ -9,47 +9,47 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16.x]
-        os: [ubuntu-latest, macos-latest, windows-2019]
+        node-version: [18.x]
+        os: [ubuntu-22.04, macos-12, windows-2022]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
       - run: npm run prebuild_electron
         env:
-          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+          prebuild_upload: ${{ secrets.AT }}
       - run: npm run prebuild_node
         env:
-          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+          prebuild_upload: ${{ secrets.AT }}
 
   build-linux-musl:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     container:
-      image: node:16-alpine
+      image: node:18-alpine
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install sdk and python
         run: apk add --no-cache alpine-sdk python3
       - run: npm i
       - run: npm run prebuild_electron
         env:
-          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+          prebuild_upload: ${{ secrets.AT }}
       - run: npm run prebuild_node
         env:
-          prebuild_upload: ${{ secrets.GITHUB_TOKEN }}
+          prebuild_upload: ${{ secrets.AT }}
 
   publish:
     needs: [build-linux_macos_windows-glibc, build-linux-musl]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
