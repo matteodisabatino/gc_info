@@ -1,5 +1,12 @@
 
 
+## 2.1.1 (2024-09-05)
+
+
+### Bug Fixes
+
+* removing some electron versions because of build problems ([609e785](https://github.com/matteodisabatino/gc_info/commit/609e785aba448f558d8f4e26a8f56f0c980574f3))
+
 # 2.1.0 (2024-09-05)
 
 
