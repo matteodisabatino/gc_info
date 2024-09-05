@@ -1,4 +1,12 @@
 
+
+# 2.1.0 (2024-09-05)
+
+
+### Features
+
+* support node v21 and v22 and several electron versions ([d274c24](https://github.com/matteodisabatino/gc_info/commit/d274c243bc8fbe7f8fdcf346ea1566915c8491b8))
+
 ## 2.0.2 (2024-05-19)
 
 ## 2.0.1 (2023-08-02)
