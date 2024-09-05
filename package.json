@@ -6,7 +6,7 @@
   "scripts": {
     "install": "prebuild-install --tag-prefix \"\" || node-gyp rebuild",
     "lint": "eslint dist test --fix",
-    "prebuild_electron": "prebuild -r electron -t 23.0.0-alpha.1 -t 24.0.0-alpha.1 -t 25.0.0-alpha.1 -t 26.0.0-alpha.1 -t 27.0.0-alpha.1 -t 28.0.0-alpha.1 -t 29.0.0-alpha.1 -t 30.0.0-alpha.1 -t 31.0.0-alpha.1 -t 32.0.0-alpha.1 -t 33.0.0-alpha.1 --force --strip --tag-prefix \"\"",
+    "prebuild_electron": "prebuild -r electron -t 23.0.0-alpha.1 -t 24.0.0-alpha.1 -t 25.0.0-alpha.1 -t 26.0.0-alpha.1 -t 27.0.0-alpha.1 -t 28.0.0-alpha.1 -t 29.0.0-alpha.1 -t 30.0.0-alpha.1 -t 31.0.0-alpha.1 --force --strip --tag-prefix \"\"",
     "prebuild_node": "prebuild -r node -t 17.0.1 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 --force --strip --tag-prefix \"\"",
     "rebuild": "node-gyp rebuild",
     "release": "release-it --ci",
