@@ -1,19 +1,4 @@
 
-
-## 2.1.1 (2024-09-05)
-
-
-### Bug Fixes
-
-* removing some electron versions because of build problems ([609e785](https://github.com/matteodisabatino/gc_info/commit/609e785aba448f558d8f4e26a8f56f0c980574f3))
-
-# 2.1.0 (2024-09-05)
-
-
-### Features
-
-* support node v21 and v22 and several electron versions ([44e6480](https://github.com/matteodisabatino/gc_info/commit/44e648094ef1da82a883a63c332f696424ea12cf))
-
 ## 2.0.2 (2024-05-19)
 
 ## 2.0.1 (2023-08-02)

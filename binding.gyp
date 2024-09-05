@@ -6,6 +6,9 @@
                     "xcode_settings": {
                         "MACOSX_DEPLOYMENT_TARGET": "10.9"
                     }
+                }],
+                ["OS=='win'", {
+                    "defines": [ "NOMINMAX" ]
                 }]
             ],
             "target_name": "gc_info",
